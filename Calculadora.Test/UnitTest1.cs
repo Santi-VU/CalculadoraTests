@@ -106,7 +106,7 @@ namespace Calculadora.Test
         {
             try
             {
-                var s = Division.DividirConResto(10, 0);
+                var s = Division.DividirConResto(10, 0); 
                 Assert.AreEqual(-1, s);
                 Assert.Fail("no exception thrown");
             }
