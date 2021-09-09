@@ -203,6 +203,22 @@ namespace Calculadora
                         }
                     }
                 }
+                else if (opcion == 6)
+                {
+                    Console.WriteLine("Introduzca un número: ");
+                    int nFac = 0;
+                    Int32.TryParse(Console.ReadLine(), out nFac);
+                    Console.WriteLine("Factorial es: " + CalculoFactorial(nFac));
+
+                }
+                else if (opcion == 7)
+                {
+                    Console.WriteLine("Introduzca un número: ");
+                    int nFib = 0;
+                    Int32.TryParse(Console.ReadLine(), out nFib);
+                    Console.WriteLine("Fibonnaci es: " + CalculoFibonacci(nFib));
+
+                }
                 else if (opcion == 0)
                 {
                     Console.WriteLine("Saliendoo...!");
@@ -227,6 +243,8 @@ namespace Calculadora
             sb.AppendLine("3) Multiplicar");
             sb.AppendLine("4) Divir");
             sb.AppendLine("5) Operación combinada");
+            sb.AppendLine("6) Factorial de un número");
+            sb.AppendLine("7) Secuencia Fibonacci");
             sb.AppendLine("0) Salir");
 
             return sb.ToString();
@@ -243,6 +261,28 @@ namespace Calculadora
                 sb.AppendLine("Introduzca operador");
 
             return sb.ToString();
+        }
+
+        public static int CalculoFactorial(int num, int cont = 1, int res = 1)
+        {
+            if (cont == num)
+            {
+                return res;
+            }
+            else
+            {
+                res = res * (cont + 1);
+                return CalculoFactorial(num, ++cont, res);
+            }
+        }
+
+        public static int CalculoFibonacci(int num)
+        {
+            if (num == 0 || num == 1)
+            {
+                return num;
+            }
+            return CalculoFibonacci(num - 1) + CalculoFibonacci(num - 2);
         }
     }
 }
